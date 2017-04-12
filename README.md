@@ -13,7 +13,7 @@ These two different configs are identical except one targets AMD the other targe
 The short of this, is:
  
  1. that AMD transpiles correctly, but SystemJS does not.
- 2. Only 12 of my 100+ .js/.ts files get included in the bundle, not sure why 
+ 2. With either AMD or SystemJS, only 12 of my 100+ .js/.ts files get included in the bundle, not sure why 
 
 
 You will notice in either the dist/systemjs-bundle.js file or dist/amd-bundle.js file, that there are only
@@ -22,6 +22,7 @@ You will notice in either the dist/systemjs-bundle.js file or dist/amd-bundle.js
 However, my `lib` directory has many more like 100+ .ts/.js files
 
 so the *first* problem (1) is that TSC is not picking up all my files, not sure why
+<br>
 the *second* problem (2) is that TSC is not taking my modules and accurately transpiling them.
 
 
