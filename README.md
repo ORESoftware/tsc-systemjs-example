@@ -9,19 +9,18 @@ $ tsc
 ```
 
 
-you will notice in the dist/systemjs-bundle.js that there are only
+you will notice in the dist/systemjs-bundle.js file, that there are only
 12 `System.register` calls (try ctrl+f)
 
-However, my lib directory has many more like 100+ .ts/.js files
+However, my `lib` directory has many more like 100+ .ts/.js files
 
 
 so the *first* problem (1) is that TSC is not picking up all my files, not sure why
 
+the *second* problem (2) is that TSC is not taking my modules and accurately transpiling them.
 
-the *second* problem (2) is that TSC is not taking my modules
-and accurately transpiling them, e.g.:
 
-an original module looks like this:
+For example, an original .ts module looks like this:
 
 
 ```typescript
@@ -147,8 +146,9 @@ System.register("test-suite-methods/make-after", [], function (exports_7, contex
 
 
 
-also, I would like to be able to bundle everything, including node_modules,
-that is a whole other challenge I think.
+As an aside, I would like to be able to bundle everything, including node_modules,
+that is a whole other challenge I think. Any advice regarding that would be much appreciated.
+
 
 
 
