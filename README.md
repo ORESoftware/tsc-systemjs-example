@@ -4,17 +4,21 @@ thanks for taking a look
 
 you can build this project with
 
+```bash
 $ tsc
+```
+
 
 you will notice in the dist/systemjs-bundle.js that there are only
-12 System.register calls (try ctrl+f)
+12 `System.register` calls (try ctrl+f)
 
-However, my lib directory has many more than 12 .ts/.js files
-
-so the first problem (1) is that TSC is not picking up all my files
+However, my lib directory has many more like 100+ .ts/.js files
 
 
-the second problem (2) is that TSC is not taking my modules
+so the *first* problem (1) is that TSC is not picking up all my files, not sure why
+
+
+the *second* problem (2) is that TSC is not taking my modules
 and accurately transpiling them, e.g.:
 
 an original module looks like this:
