@@ -1,22 +1,27 @@
 @ryan cavanaugh
 
-thanks for taking a look
+thanks for taking a look, I think I can demonstrate some problems
 
 you can build this project with
 
 ```bash
-$ tsc
+$ tsc --project tsconfig-amd.json
+$ tsc --project tsconfig-system.json
 ```
 
+These two different configs are identical except one targets AMD the other targets SystemJS.
+The short of this, is:
+ 
+ 1. that AMD transpiles correctly, but SystemJS does not.
+ 2. Only 12 of my 100+ .js/.ts files get included in the bundle, not sure why 
 
-you will notice in the dist/systemjs-bundle.js file, that there are only
+
+You will notice in either the dist/systemjs-bundle.js file or dist/amd-bundle.js file, that there are only
 12 `System.register` calls (try ctrl+f)
 
 However, my `lib` directory has many more like 100+ .ts/.js files
 
-
 so the *first* problem (1) is that TSC is not picking up all my files, not sure why
-
 the *second* problem (2) is that TSC is not taking my modules and accurately transpiling them.
 
 
@@ -144,6 +149,10 @@ System.register("test-suite-methods/make-after", [], function (exports_7, contex
 
 ```
 
+Here are my **hypotheses**:
+
+1. TSC is (erroneously) not including .js files at all (only is transpiling .ts files, and moving those to --outFile) (seems likely)
+2. I do not currently have a hypothesis WRT why SystemJS is not being transpiled accurately. AMD seems to be OK.
 
 
 As an aside, I would like to be able to bundle everything, including node_modules,
