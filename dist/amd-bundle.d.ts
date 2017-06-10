@@ -1,4 +1,11 @@
 /// <reference types="node" />
+declare const process: any;
+declare const global: any;
+declare const util: any;
+declare const fnArgs: any;
+declare const sumanUtils: any;
+declare const _suman: any;
+declare const makeGen: any;
 declare module "freeze-existing" {
     var _default: (obj: any) => any;
     export = _default;
